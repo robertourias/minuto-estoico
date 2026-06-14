@@ -80,8 +80,8 @@ npm run prisma:seed
 npm run start:dev
 ```
 
-API disponível em `http://localhost:3001`
-Swagger em `http://localhost:3001/api/docs`
+API disponível em `http://localhost:3021`
+Swagger em `http://localhost:3021/api/docs`
 
 ### 3. Frontend
 
@@ -91,7 +91,7 @@ npm install
 npm run dev
 ```
 
-App disponível em `http://localhost:3000`
+App disponível em `http://localhost:3020`
 
 ---
 
@@ -174,16 +174,16 @@ docker exec minuto-estoico-api npm run prisma:seed
 ### Backend (`backend/.env`)
 
 ```env
-DATABASE_URL="postgresql://user:pass@host:5432/minuto_estoico"
-PORT=3001
+DATABASE_URL="postgresql://user:pass@host:5452/minuto_estoico"
+PORT=3021
 NODE_ENV=development
-FRONTEND_URL=http://localhost:3000
+FRONTEND_URL=http://localhost:3020
 ```
 
 ### Frontend (`frontend/.env.local`)
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:3001/api
+NEXT_PUBLIC_API_URL=http://localhost:3021/api
 ```
 
 ---

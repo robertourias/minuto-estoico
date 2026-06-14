@@ -14,5 +14,5 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/prisma ./prisma
 COPY package*.json ./
 
-EXPOSE 3001
-CMD ["node", "dist/main"]
+EXPOSE 3021
+CMD ["sh", "-c", "npx prisma db push && node dist/main"]

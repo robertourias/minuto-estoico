@@ -14,7 +14,7 @@ async function Home() {
         <h1 className="font-serif text-2xl text-stone-600 mb-4">Minuto Estoico</h1>
         <p className="text-stone-400 text-sm max-w-sm leading-relaxed">
           Não foi possível conectar à API. Verifique se o backend está rodando
-          em <code className="text-stone-500">localhost:3001</code>.
+          em <code className="text-stone-500">localhost:3021</code>.
         </p>
         <p className="text-xs text-stone-300 mt-8">
           Rode <code>npm run start:dev</code> na pasta{' '}
