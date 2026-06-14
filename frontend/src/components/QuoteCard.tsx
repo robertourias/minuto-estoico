@@ -61,7 +61,7 @@ export function QuoteCard({ quote, onNewQuote, isLoading = false }: QuoteCardPro
           className="flex items-center justify-center gap-3 mb-8"
         >
           <div className="h-px w-12 bg-parchment-300 dark:bg-stone-700" />
-          <div className="text-parchment-400 text-lg select-none">❧</div>
+          <div className="text-parchment-400 dark:text-stone-700 text-lg select-none">❧</div>
           <div className="h-px w-12 bg-parchment-300 dark:bg-stone-700" />
         </motion.div>
 
