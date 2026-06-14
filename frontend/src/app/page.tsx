@@ -2,6 +2,9 @@ import { Suspense } from 'react';
 import { getDailyQuote } from '@/lib/api';
 import { HomeClient } from '@/components/HomeClient';
 
+// Força SSR — nunca gera estático (a citação muda por dia e a API não está disponível no build)
+export const dynamic = 'force-dynamic';
+
 // Busca a citação do dia no servidor (SSR)
 async function Home() {
   try {
