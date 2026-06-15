@@ -31,8 +31,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-parchment-50">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-          <Analytics />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
