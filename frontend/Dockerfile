@@ -1,5 +1,9 @@
 FROM node:20-alpine AS builder
 
+# NEXT_PUBLIC_* vars são gravadas no bundle no momento do build
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci

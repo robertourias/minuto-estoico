@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // O frontend chama a API do Render diretamente via NEXT_PUBLIC_API_URL.
-  // Nenhum proxy local necessário — o CORS é gerenciado pelo NestJS.
+  // Necessário para o Dockerfile multi-stage (node server.js standalone)
+  output: 'standalone',
 };
 
 export default nextConfig;
