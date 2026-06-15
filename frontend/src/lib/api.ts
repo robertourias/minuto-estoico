@@ -2,10 +2,16 @@ import { Quote, QuoteListResponse } from '@/types/quote';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3021/api';
 
+// Timeout de 10s — evita travar quando o Render free tier está dormindo
+const FETCH_TIMEOUT_MS = 10_000;
+
 async function fetchApi<T>(path: string): Promise<T> {
-  const res = await fetch(`${API_URL}${path}`, {
+  const url = `${API_URL}${path}`;
+
+  const res = await fetch(url, {
     headers: { 'Content-Type': 'application/json' },
-    next: { revalidate: 0 }, // sem cache — sempre busca dados frescos
+    next: { revalidate: 0 },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
   });
 
   if (!res.ok) {

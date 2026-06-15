@@ -10,19 +10,27 @@ async function Home() {
   try {
     const dailyQuote = await getDailyQuote();
     return <HomeClient initialQuote={dailyQuote} />;
-  } catch {
-    // Fallback quando a API não está disponível
+  } catch (err) {
+    const isDev = process.env.NODE_ENV === 'development';
+    console.error('[Minuto Estoico] Falha ao buscar citação do dia:', err);
     return (
       <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <h1 className="font-serif text-2xl text-stone-600 mb-4">Minuto Estoico</h1>
         <p className="text-stone-400 text-sm max-w-sm leading-relaxed">
-          Não foi possível conectar à API. Verifique se o backend está rodando
-          em <code className="text-stone-500">localhost:3021</code>.
+          O servidor está iniciando. Aguarde alguns instantes e recarregue a página.
         </p>
-        <p className="text-xs text-stone-300 mt-8">
-          Rode <code>npm run start:dev</code> na pasta{' '}
-          <code>backend/</code> para iniciar.
-        </p>
+        {isDev && (
+          <p className="text-xs text-stone-300 mt-4">
+            Dev: verifique se o backend está em{' '}
+            <code className="text-stone-500">localhost:3021</code>
+          </p>
+        )}
+        <a
+          href="/"
+          className="mt-8 px-4 py-2 text-sm text-stone-500 border border-stone-200 rounded hover:bg-parchment-100 transition-colors"
+        >
+          Tentar novamente
+        </a>
       </div>
     );
   }
