@@ -124,6 +124,21 @@ A cada `git push origin main`:
 - **Render** redeploya o backend automaticamente
 - **Vercel** redeploya o frontend automaticamente
 
+### Atualização no VPS (Docker)
+
+Se o projeto estiver rodando via `docker-compose.prod.yml` numa VPS:
+
+```bash
+ssh usuario@seu-ip-da-vps
+cd /caminho/do/minuto-estoico
+git pull origin main
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
+> 💡 O `--build` é obrigatório — sem ele o Docker reaplica os containers antigos e ignora o código novo.
+
+> 💡 Se só um serviço mudou, rebuilde só ele para economizar tempo: `docker compose -f docker-compose.prod.yml up -d --build backend` (ou `frontend`).
+
 ---
 
 ## Resumo das URLs finais
