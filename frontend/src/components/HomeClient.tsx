@@ -3,11 +3,9 @@
 import { useState, useCallback } from 'react';
 import { Quote } from '@/types/quote';
 import { QuoteCard } from './QuoteCard';
-import { FavoritesDrawer } from './FavoritesDrawer';
 import { ThemeToggle } from './ThemeToggle';
 import { DailyBadge } from './DailyBadge';
 import { getRandomQuote } from '@/lib/api';
-import { FavoritesProvider } from '@/hooks/useFavorites';
 
 interface HomeClientProps {
   initialQuote: Quote;
@@ -34,12 +32,7 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
     }
   }, [quote.id, isLoading]);
 
-  const handleSelectFavorite = useCallback((selected: Quote) => {
-    setQuote(selected);
-  }, []);
-
   return (
-    <FavoritesProvider>
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-5 max-w-3xl mx-auto w-full">
@@ -51,7 +44,6 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
         </div>
         <nav className="flex items-center gap-6">
           <ThemeToggle />
-          <FavoritesDrawer onSelectQuote={handleSelectFavorite} />
         </nav>
       </header>
 
@@ -83,6 +75,5 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
         </p>
       </footer>
     </div>
-    </FavoritesProvider>
   );
 }

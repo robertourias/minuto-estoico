@@ -2,10 +2,9 @@
 
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Copy, Heart, RefreshCw, Share2, Check } from 'lucide-react';
+import { Copy, RefreshCw, Share2, Check } from 'lucide-react';
 import { Quote } from '@/types/quote';
 import { copyToClipboard, buildShareText, buildWhatsAppUrl } from '@/lib/utils';
-import { useFavorites } from '@/hooks/useFavorites';
 
 interface QuoteCardProps {
   quote: Quote;
@@ -15,8 +14,6 @@ interface QuoteCardProps {
 
 export function QuoteCard({ quote, onNewQuote, isLoading = false }: QuoteCardProps) {
   const [copied, setCopied] = useState(false);
-  const { toggleFavorite, isFavorite } = useFavorites();
-  const isFav = isFavorite(quote.id);
 
   const handleCopy = useCallback(async () => {
     const text = buildShareText(quote);
@@ -148,20 +145,6 @@ export function QuoteCard({ quote, onNewQuote, isLoading = false }: QuoteCardPro
               className={isLoading ? 'animate-spin' : ''}
             />
             {isLoading ? 'Carregando...' : 'Nova reflexão'}
-          </button>
-
-          {/* Favoritar */}
-          <button
-            onClick={() => toggleFavorite(quote)}
-            title={isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
-            className={`
-              p-3 rounded-full border transition-all duration-200 active:scale-95
-              ${isFav
-                ? 'bg-rose-50 border-rose-200 text-rose-500 dark:bg-rose-950 dark:border-rose-800 dark:text-rose-300'
-                : 'border-parchment-300 text-stone-400 hover:border-rose-200 hover:text-rose-400 dark:border-stone-700 dark:text-stone-500 dark:hover:border-rose-800 dark:hover:text-rose-400'}
-            `}
-          >
-            <Heart size={18} fill={isFav ? 'currentColor' : 'none'} />
           </button>
 
           {/* Copiar */}
