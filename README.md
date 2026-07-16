@@ -188,6 +188,25 @@ NEXT_PUBLIC_API_URL=http://localhost:3021/api
 
 ---
 
+## Deploy e atualização
+
+Guia completo de deploy (Supabase + Render + Vercel) em [`DEPLOY.md`](./DEPLOY.md).
+
+### Atualizando repo na VPS (Docker)
+
+```bash
+ssh usuario@seu-ip-da-vps
+cd /caminho/do/minuto-estoico
+git pull origin main
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
+> `--build` obrigatório — sem ele Docker reaplica os containers antigos, ignora código novo.
+
+Rebuild só um serviço: `docker compose -f docker-compose.prod.yml up -d --build backend` (ou `frontend`).
+
+---
+
 ## Licença
 
 MIT
