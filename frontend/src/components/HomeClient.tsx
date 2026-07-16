@@ -39,16 +39,10 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
       <header className="grid grid-cols-3 items-center px-6 py-4 max-w-3xl mx-auto w-full">
         <div aria-hidden="true" />
         <div className="flex justify-center">
-          <h1 className="m-0">
-            <span className="sr-only">Minuto Estoico</span>
-            <Image
-              src="/logo.png"
-              alt="Minuto Estoico"
-              width={48}
-              height={48}
-              priority
-              className="h-11 w-11 object-contain drop-shadow-sm"
-            />
+          <h1 className="m-0 text-center font-serif text-lg md:text-xl tracking-wide select-none">
+            <span className="text-stone-700 dark:text-stone-200">Minuto</span>
+            {' '}
+            <span className="text-parchment-500 dark:text-parchment-400 font-semibold">Estoico</span>
           </h1>
         </div>
         <nav className="flex items-center justify-end gap-6">
@@ -59,6 +53,20 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
       {/* Main */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-12">
         <div className="w-full max-w-2xl">
+          {/* Logo acima da primeira seção */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo.png"
+              alt="Minuto Estoico"
+              width={360}
+              height={360}
+              priority
+              quality={100}
+              sizes="120px"
+              className="h-[120px] w-[120px] object-contain drop-shadow-md"
+            />
+          </div>
+
           <DailyBadge />
 
           <div
