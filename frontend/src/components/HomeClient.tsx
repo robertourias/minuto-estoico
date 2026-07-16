@@ -37,7 +37,15 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="grid grid-cols-3 items-center px-6 py-4 max-w-3xl mx-auto w-full">
-        <div aria-hidden="true" />
+        <div className="flex items-center">
+          <Image
+            src="/phi-icon.png"
+            alt="Minuto Estoico"
+            width={32}
+            height={32}
+            className="h-8 w-8 object-contain"
+          />
+        </div>
         <div className="flex justify-center">
           <h1 className="m-0 text-center font-serif text-lg md:text-xl tracking-wide select-none">
             <span className="text-stone-700 dark:text-stone-200">Minuto</span>
@@ -56,7 +64,7 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
           {/* Logo acima da primeira seção */}
           <div className="flex justify-center mb-8">
             <Image
-              src="/logo.png"
+              src="/phi-icon.png"
               alt="Minuto Estoico"
               width={360}
               height={360}
