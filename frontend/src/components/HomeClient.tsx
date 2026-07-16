@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import Image from 'next/image';
 import { Quote } from '@/types/quote';
 import { QuoteCard } from './QuoteCard';
 import { ThemeToggle } from './ThemeToggle';
@@ -35,14 +36,22 @@ export function HomeClient({ initialQuote }: HomeClientProps) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-5 max-w-3xl mx-auto w-full">
-        <div>
-          <h1 className="font-serif text-xl text-stone-700 dark:text-stone-200 tracking-tight">
-            Minuto{' '}
-            <span className="text-stone-400 dark:text-stone-500 font-normal italic">Estoico</span>
+      <header className="grid grid-cols-3 items-center px-6 py-4 max-w-3xl mx-auto w-full">
+        <div aria-hidden="true" />
+        <div className="flex justify-center">
+          <h1 className="m-0">
+            <span className="sr-only">Minuto Estoico</span>
+            <Image
+              src="/logo.png"
+              alt="Minuto Estoico"
+              width={48}
+              height={48}
+              priority
+              className="h-11 w-11 object-contain drop-shadow-sm"
+            />
           </h1>
         </div>
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center justify-end gap-6">
           <ThemeToggle />
         </nav>
       </header>

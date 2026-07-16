@@ -12,6 +12,14 @@ export const metadata: Metadata = {
     'Dedique um minuto do seu dia para uma reflexão inspirada nos ensinamentos estoicos. Citações de Marco Aurélio, Sêneca, Epicteto e outros filósofos clássicos.',
   keywords: ['estoicismo', 'filosofia', 'citações', 'reflexão', 'meditação', 'mindfulness'],
   authors: [{ name: 'Minuto Estoico' }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     title: 'Minuto Estoico — Uma reflexão por dia',
     description: 'Citações estoicas diárias para desenvolver serenidade, sabedoria e autocontrole.',
